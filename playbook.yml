@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  tasks:
+     - name: Download VirtualBox
+       get_url:
+         url: http://download.virtualbox.org/virtualbox/5.1.26/VirtualBox-5.1.26-117224-OSX.dmg
+         dest: /Users/demouser/Downloads/
+     - name: Mount Virtual Box
+       command: hdiutil attach /Users/demouser/Downloads/VirtualBox-5.1.26-117224-OSX.dmg
+     - name: Install VirtualBox.pkg
+       command: installer -pkg /Volumes/VirtualBox/VirtualBox.pkg  -target /
+       become: yes  
+     - name: Unmount VirtualBox image
+       command: hdiutil detach "/Volumes/VirtualBox"
+     - name: Download 901 Exam Objectives
+       get_url:
+         url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-901-exam-objectives.pdf
+         dest: /Users/demouser/Desktop
+     - name: Download 902 Exam Objectives
+       get_url:
+         url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-902-exam-objectives.pdf
+         dest: /Users/demouser/Desktop
+     - name: Comptia A+ practice exams
+       get_url:
+         url: http://www.examcompass.com/comptia-a-plus-practice-test-1-exam-220-901
+         dest: /Users/demouser/Desktop/Practice Exams
+
+     - name: Professor Messer videos
+       get_url:
+         url: https://www.professormesser.com/free-a-plus-training/220-901/comptia-220-900-course/
+         dest: /Users/demouser/Desktop/Professor Messer
+
