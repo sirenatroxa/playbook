@@ -3,10 +3,10 @@
   tasks:
      - name: Download VirtualBox
        get_url:
-         url: http://download.virtualbox.org/virtualbox/5.1.26/VirtualBox-5.1.26-117224-OSX.dmg
+         url: http://download.virtualbox.org/virtualbox/5.1.30/VirtualBox-5.1.30-118389-OSX.dmg
          dest: /Users/demouser/Downloads/
      - name: Mount Virtual Box
-       command: hdiutil attach /Users/demouser/Downloads/VirtualBox-5.1.26-117224-OSX.dmg
+       command: hdiutil attach /Users/demouser/Downloads/VirtualBox-5.1.30-118389-OSX.dmg
      - name: Install VirtualBox.pkg
        command: installer -pkg /Volumes/VirtualBox/VirtualBox.pkg  -target /
        become: yes  
