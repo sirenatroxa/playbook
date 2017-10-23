@@ -25,8 +25,7 @@
          url: http://www.examcompass.com/comptia-a-plus-practice-test-1-exam-220-901
          dest: /Users/demouser/Desktop/Practice Exams
 
-     - name: Professor Messer videos
-       get_url:
-         url: https://www.professormesser.com/free-a-plus-training/220-901/comptia-220-900-course/
-         dest: /Users/demouser/Desktop/Professor Messer
-
+     - name: Create link to Professor Messer 901 video playlist
+       copy:
+         src: pm901.xml
+         dest: /Users/demouser/Desktop/Professor Messer 901 playlist.webloc
