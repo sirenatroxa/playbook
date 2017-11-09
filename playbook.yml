@@ -2,6 +2,7 @@
 - hosts: localhost
   roles:
    - role: VirtualBoxHost
+   - role: ResetStartDate
   tasks:
      - name: Download 901 Exam Objectives
        get_url:
