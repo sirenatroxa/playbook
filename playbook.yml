@@ -21,12 +21,18 @@
          url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-902-exam-objectives.pdf
          dest: /Users/demouser/Desktop
 
-     - name: Create link to Comptia A+ practice exams
+     - name: Creates link to Comptia A+ practice exams
        copy:
          src: practice.xml 
          dest: /Users/demouser/Desktop/Comptia A+ Practice Exams.webloc
 
-     - name: Create link to Professor Messer 901 video playlist
+     - name: Creates link to Professor Messer 901 video playlist
+       copy:
+         src: MesserQ.xml
+         dest: /Users/demouser/Desktop/Professor Messer Practice Quiz.webloc
+
+     - name: Creates link to Professor Messer 901 video playlist
        copy:
          src: pm901.xml
          dest: /Users/demouser/Desktop/Professor Messer 901 playlist.webloc
+     
