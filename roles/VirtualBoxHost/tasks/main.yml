@@ -1,0 +1,12 @@
+---
+- name: Download VirtualBox
+  get_url:
+    url: http://download.virtualbox.org/virtualbox/{{ virtualbox_version }}/VirtualBox-{{ virtualbox_version }}-{{ virtualbox_build }}-OSX.dmg
+    dest: /Users/demouser/Downloads/
+- name: Mount Virtual Box
+  command: hdiutil attach /Users/demouser/Downloads/VirtualBox-{{ virtualbox_version }}-{{ virtualbox_build }}-OSX.dmg
+- name: Install VirtualBox.pkg
+  command: installer -pkg /Volumes/VirtualBox/VirtualBox.pkg  -target /
+  become: yes  
+- name: Unmount VirtualBox image
+  command: hdiutil detach "/Volumes/VirtualBox"
