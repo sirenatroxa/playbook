@@ -5,7 +5,7 @@
   register: vb
   changed_when: False
 - name: Check the version of the installed VirtualBox
-  shell: grep CFBundleVersion /Applications/VirtualBox.app/Contents/Info.plist | grep -q 5.1.30
+  shell: grep CFBundleVersion /Applications/VirtualBox.app/Contents/Info.plist | grep -q {{ virtualbox_version }}
   when: vb.stat.isreg is defined
   register: vbversionok
   changed_when: False
