@@ -1,17 +1,9 @@
 ---
 - hosts: localhost
+  roles:
+   - role: VirtualBoxHost
+   - role: ResetStartDate
   tasks:
-     - name: Download VirtualBox
-       get_url:
-         url: http://download.virtualbox.org/virtualbox/5.1.30/VirtualBox-5.1.30-118389-OSX.dmg
-         dest: /Users/demouser/Downloads/
-     - name: Mount Virtual Box
-       command: hdiutil attach /Users/demouser/Downloads/VirtualBox-5.1.30-118389-OSX.dmg
-     - name: Install VirtualBox.pkg
-       command: installer -pkg /Volumes/VirtualBox/VirtualBox.pkg  -target /
-       become: yes  
-     - name: Unmount VirtualBox image
-       command: hdiutil detach "/Volumes/VirtualBox"
      - name: Download 901 Exam Objectives
        get_url:
          url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-901-exam-objectives.pdf
@@ -21,12 +13,18 @@
          url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-902-exam-objectives.pdf
          dest: /Users/demouser/Desktop
 
-     - name: Create link to Comptia A+ practice exams
+     - name: Creates link to Comptia A+ practice exams
        copy:
          src: practice.xml 
          dest: /Users/demouser/Desktop/Comptia A+ Practice Exams.webloc
 
-     - name: Create link to Professor Messer 901 video playlist
+     - name: Creates link to Professor Messer 901 and 902 Practice Quiz
+       copy:
+         src: MesserQ.xml
+         dest: /Users/demouser/Desktop/Professor Messer Practice Quiz.webloc
+
+     - name: Creates link to Professor Messer 901 video playlist
        copy:
          src: pm901.xml
          dest: /Users/demouser/Desktop/Professor Messer 901 playlist.webloc
+     

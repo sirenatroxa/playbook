@@ -1,0 +1,4 @@
+---
+- name: Reset image start date
+  shell: date "+%s" > /var/db/.DemoTimestamp
+  become: yes
