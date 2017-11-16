@@ -1,0 +1,25 @@
+  
+     - name: Download 901 Exam Objectives
+       get_url:
+         url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-901-exam-objectives.pdf
+         dest: /Users/demouser/Desktop
+     - name: Download 902 Exam Objectives
+       get_url:
+         url: https://certification.comptia.org/docs/default-source/exam-objectives/comptia-a-220-902-exam-objectives.pdf
+         dest: /Users/demouser/Desktop
+
+     - name: Creates link to Comptia A+ practice exams
+       copy:
+         src: practice.xml
+         dest: /Users/demouser/Desktop/Comptia A+ Practice Exams.webloc
+
+     - name: Creates link to Professor Messer 901 and 902 Practice Quiz
+       copy:
+         src: MesserQ.xml
+         dest: /Users/demouser/Desktop/Professor Messer Practice Quiz.webloc
+
+     - name: Creates link to Professor Messer 901 video playlist
+       copy:
+         src: pm901.xml
+         dest: /Users/demouser/Desktop/Professor Messer 901 playlist.webloc
+
