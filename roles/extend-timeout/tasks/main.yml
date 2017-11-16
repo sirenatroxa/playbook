@@ -1,4 +1,0 @@
----
-- name: Reset 90 day timeout
-  shell: echo $((`date '+%s'` + 7776000)) > /var/db/.DemoTimestamp
-  become: yes
